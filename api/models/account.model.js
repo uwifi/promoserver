@@ -84,3 +84,18 @@ ModelAccount.createPromoAccount = function createPromoAccount(accountData) {
         });
     });
 };
+ModelAccount.getAccountICOProcess = function getAccountICOProcess(authUser){
+    return DomainBank.findAll({
+        where:{
+            account: authUser.id
+        }
+    }).then((bankInstanceArray)=>{
+        if(bankInstanceArray.length != 2){
+            throw {
+                code: 10101,
+                msg: "服务器错误"
+            };
+        }
+        return bankInstanceArray.map((ele)=>ele.toJSON());
+    });
+};

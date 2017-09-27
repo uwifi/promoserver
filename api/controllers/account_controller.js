@@ -58,4 +58,14 @@ function checkoutAccount(account) {
         };
         resolve(isOk);
     });
-}
+};
+
+ControllerAccount.getAccountICOProcess = function getAccountICOProcess(req, res){
+    let authUser = res.locals.oauth.token.user;
+    ModelAccount.getAccountICOProcess(authUser).then((icoBankJSON)=>{
+        res.status(200);
+        res.json({
+            data: icoBankJSON
+        });
+    });
+};
