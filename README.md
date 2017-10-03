@@ -1,6 +1,6 @@
 # promoserver
 # 介绍 #
-这是为UBC TOKEN Package提供的API服务。基于WEB3.js上的封装。
+这是为Business Service TOKEN Package提供的API服务。基于WEB3.js上的封装。
 
 # 环境 #
   * go-ethereum 1.7+ stable
