@@ -30,7 +30,7 @@ app.get('/promo/authed/account/ico/process', app.oauth.authenticate(), Controlle
 
 //-- public
 app.post('/promo/public/account', ControllerAccount.createPromoAccount);
-app.post("/promo/public/fund/listen", ControllerFund.receiveListenerOfFund);
+app.post("/promo/ssl/public/fund/listen", ControllerFund.receiveListenerOfFund);
 
 
 //-- public end
