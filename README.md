@@ -1,6 +1,6 @@
 # promoserver
 # 介绍 #
-这是为Business Service TOKEN Package提供的API服务。基于WEB3.js上的封装。
+这是为Business Service TOKEN Package提供的API服务。目前只有ICO阶段
 
 # 环境 #
   * go-ethereum 1.7+ stable
@@ -21,6 +21,10 @@
 
 # 接口说明 #
 参考文件 api.define.json
+  * post: /promo/token  oauth2相关 password，access\_token, refresh\_tokne
+  * get: /promo/authed/account/ico/process ico进度
+  * post: /promo/public/account 创建account {account,email,password}
+  * post: /promo/public/fund/listen 接受监听 { bankType, data }
 
 # 环境初始化 #
 这里认为环境已经安装好

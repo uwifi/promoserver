@@ -4,6 +4,7 @@ const express = require("express"),
     bodyParser = require("body-parser"),
     oauthserver = require("express-oauth-server");
 const ControllerAccount = require("./api/controllers/account_controller");
+const ControllerFund = require("./api/controllers/fund_controller");
 
 var app = express();
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.get('/promo/authed/account/ico/process', app.oauth.authenticate(), Controlle
 
 //-- public
 app.post('/promo/public/account', ControllerAccount.createPromoAccount);
+app.post("/promo/public/fund/listen", ControllerFund.receiveListenerOfFund);
 
 
 //-- public end

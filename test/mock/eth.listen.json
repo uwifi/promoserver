@@ -1,0 +1,7 @@
+{
+    "bankType":"ETH",
+    "txTo":"eth000000",
+    "txHash":"txeth000000",
+    "txFrom":"from000000",
+    "txValue":1e18
+}

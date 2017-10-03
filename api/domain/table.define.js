@@ -89,7 +89,7 @@ model.DomainBank = sequelize.define("t_bank", {
     },
     bankType: {
         type: Sequelize.STRING,
-        field: "bank_tyep"
+        field: "bank_type"
     },
     bankAddress: {
         type: Sequelize.STRING,
@@ -118,7 +118,7 @@ model.DomainTrade = sequelize.define("t_trade", {
     },
     bankType: {
         type: Sequelize.STRING,
-        field: "bank_tyep"
+        field: "bank_type"
     },
     bankAddress: {
         type: Sequelize.STRING,
@@ -132,6 +132,14 @@ model.DomainTrade = sequelize.define("t_trade", {
     fromAddress: {
         type: Sequelize.STRING,
         field: "from_address"
+    },
+    toAddress: {
+        type: Sequelize.STRING,
+        field: "to_address"
+    },
+    amountAddress: {
+        type: Sequelize.BIGINT,
+        field: "amount_address"
     },
     amountInWei: {
         type: Sequelize.BIGINT,
