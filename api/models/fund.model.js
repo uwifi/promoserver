@@ -21,7 +21,7 @@ ModelFund.receiveListenerOfFund = function receiveListenerOfFund(fundInfo){
 };
 
 function receiveEthFund(fundData){
-    let res = {};
+    let rez = [];
     return DomainTrade.bulkCreate(fundData.map((ele)=>{
         return {
             bankType:"ETH",
@@ -32,8 +32,12 @@ function receiveEthFund(fundData){
             amountInWei: ele.txValue
         };
     })).then((instanceArray)=>{
-        instanceArray.map((ele)=> ele.toJSON()).forEach((ele)=>{
-            res[ele.txHash] = "ok";
+        instanceArray.map((ele)=> ele.toJSON()).map((ele)=>{
+            return {
+                txHash: ele.txHash,
+                status: "ok",
+                usage:"promoserver"
+            };
         });
         return sequelize.query("update t_trade as tt set account = (select account from t_bank where bank_address = tt.bank_address), amount_human = (amount_in_wei / 1e18);", {
             type:Sequelize.QueryTypes.UPDATE
@@ -43,7 +47,7 @@ function receiveEthFund(fundData){
             type:Sequelize.QueryTypes.UPDATE
         });
     }).then((bankUpdated)=>{
-        return res;
+        return rez;
     });
 };
 
