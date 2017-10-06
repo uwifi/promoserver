@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 const KEYS = require("../models/oauth2.model").KEYS;
 
 const APP = "promoserver";
-var sequelize = new Sequelize(APP, APP, APP, {
+var sequelize = new Sequelize(APP, APP, `${APP}`, {
     host: "localhost",
     logging: true,
     define: {
