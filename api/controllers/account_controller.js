@@ -14,7 +14,12 @@ ControllerAccount.createPromoAccount = function createPromoAccount(req, res){
         return ModelAccount.createPromoAccount({
             account: account.account.trim(),
             email: account.email.trim(),
-            password: account.password.trim()
+            password: account.password.trim(),
+            country:account.country.id,
+            firstName:account.firstName,
+            lastName:account.lastName,
+            idCardNumber:account.idCardNumber,
+            phone:account.phone
         }, req, res);
     }).then((bankdata)=>{
         Object.assign(signup, bankdata);

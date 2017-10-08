@@ -45,6 +45,22 @@ model.DomainAccount = sequelize.define("t_account", {
     accountType: {
         type: Sequelize.STRING,
         field: "account_type"
+    },
+    country:{
+        type:Sequelize.STRING,
+        filed:'country'
+    },
+    firstName:{
+        type:Sequelize.STRING,
+        field:'first_name'
+    },
+    lastName:{
+        type:Sequelize.STRING,
+        field:'last_name'
+    },
+    idCardNumber:{
+        type:Sequelize.STRING,
+        field:'id_card_number'
     }
 });
 model.DomainLibEth = sequelize.define("t_lib_eth", {
