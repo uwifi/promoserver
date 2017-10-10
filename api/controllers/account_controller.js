@@ -15,7 +15,7 @@ ControllerAccount.createPromoAccount = function createPromoAccount(req, res){
             account: account.account.trim(),
             email: account.email.trim(),
             password: account.password.trim(),
-            country:account.country.id,
+            country:account.country,
             firstName:account.firstName,
             lastName:account.lastName,
             idCardNumber:account.idCardNumber,
