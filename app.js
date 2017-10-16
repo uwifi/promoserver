@@ -10,7 +10,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//app.use(express.static('/Users/nevernew/Projects/mobipromo.io'));
+app.use(express.static('/Users/nevernew/Projects/mobipromo.io'));
 
 app.oauth = new oauthserver({
     model: require('./api/models/oauth2.model')
