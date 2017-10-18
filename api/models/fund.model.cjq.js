@@ -11,15 +11,17 @@ var ModelFund = module.exports;
 ModelFund.receiveListenerOfFund = function receiveListenerOfFund(fundInfo){
     switch(fundInfo.bankType){
     case "ETH":
-        return receiveEthFund(fundInfo.data,"ETH");
+        return receiveBitFund(fundInfo.data,"ETH");
     case "BTC":
-        return receiveBtcFund(fundInfo.data,"BTC");
+        return receiveBitFund(fundInfo.data,"BTC");
     default:
         throw new Error("unknown fund type");
     }
 };
 
-function receiveBtcFund(fundData,bankType){
+function receiveBitFund(fundData,bankType){
+
+    console.log('\n------------------receive data:'+JSON.stringify(fundData)+'------------------');
     let rez = [];
     fundData.forEach(
         function(ele){  
