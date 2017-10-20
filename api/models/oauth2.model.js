@@ -71,7 +71,7 @@ model.getUser = function(username, password) {
             return undefined;
         }
         return {
-            id: username,
+            id: user.username,
             accountId: user.accountId
         };
     });

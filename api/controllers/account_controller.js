@@ -23,7 +23,14 @@ ControllerAccount.createPromoAccount = function createPromoAccount(req, res){
         }, req, res);
     }).then((bankdata)=>{
         Object.assign(signup, bankdata);
+        redis.hmsetAsync(`${KEYS.user}${account.email}`, {
+            email:bankdata.account.email,
+            username: bankdata.account.account,
+            password: bankdata.account.password,
+            accountId: bankdata.account.id
+        });
         return redis.hmsetAsync(`${KEYS.user}${account.account}`, {
+            email:bankdata.account.email,
             username: bankdata.account.account,
             password: bankdata.account.password,
             accountId: bankdata.account.id
