@@ -142,8 +142,7 @@ model.DomainTrade = sequelize.define("t_trade", {
     },
     txHash: {
         type: Sequelize.STRING,
-        field: "tx_hash",
-        unique: true
+        field: "tx_hash"
     },
     fromAddress: {
         type: Sequelize.STRING,
