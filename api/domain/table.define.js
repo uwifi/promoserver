@@ -61,6 +61,10 @@ model.DomainAccount = sequelize.define("t_account", {
     idCardNumber:{
         type:Sequelize.STRING,
         field:'id_card_number'
+    },
+    receiveCanAddress:{
+        type:Sequelize.STRING,
+        field:'receive_can_address'
     }
 });
 model.DomainLibEth = sequelize.define("t_lib_eth", {
@@ -158,7 +162,7 @@ model.DomainTrade = sequelize.define("t_trade", {
         field: "amount_address"
     },
     amountInWei: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.NUMERIC,
         field: "amount_in_wei"
     },
     amountHuman: {

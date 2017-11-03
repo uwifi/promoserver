@@ -6,6 +6,7 @@ const express = require("express"),
 const ControllerAccount = require("./api/controllers/account_controller");
 const ControllerFund = require("./api/controllers/fund_controller");
 const ControllerFundCjq = require("./api/controllers/fund_controller.cjq");
+const ControllerAccountCan = require("./api/controllers/canaddress_controller");
 
 var app = express();
 app.use(bodyParser.json());
@@ -21,7 +22,7 @@ app.post('/promo/token', app.oauth.token());
 
 //-- authed
 app.get('/promo/authed/account/ico/process', app.oauth.authenticate(), ControllerAccount.getAccountICOProcess);
-
+app.post("/promo/authed/account/ico/canaddress", app.oauth.authenticate(), ControllerAccountCan.updatePromoAccountCanAddress);
 //app.get('/ubc/bag/account/wallet/:projectAddress', app.oauth.authenticate(), ControllerAccount.getAccountWalletOfProjectAddress);
 //app.post('/ubc/bag/account/wallet/item', app.oauth.authenticate(), ControllerAccount.createAccountBagItem);
 //app.get('/ubc/bag/account/wallet/:projectAddress/item', app.oauth.authenticate(), ControllerAccount.queryAccountBagItem);
