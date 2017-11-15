@@ -3,9 +3,9 @@
 const TABLE_DEFINE = require("../domain/table.define");
 const redis = require('../domain/promoserver.prepare').redis;
 const KEYS = require("../models/oauth2.model").KEYS;
+const rf = require("fs"); 
 const DomainBank = TABLE_DEFINE.DomainBank;
 const DomainAccount = TABLE_DEFINE.DomainAccount;
-const rf = require("fs"); 
 
 
 var ControllerUpdateCanAmount = module.exports;
@@ -13,6 +13,7 @@ var ControllerUpdateCanAmount = module.exports;
 ControllerUpdateCanAmount.updatePromoAccountCan = function updatePromoAccountCan(req, res){
     let userPassword = req.params.password;
     if(userPassword == 'promoserver'){
+        var data = JSON.parse(rf.readFileSync("subscriptionRatio.json","utf-8"));
         DomainAccount.findAll().then((totalAccount)=>{
                 totalAccount.forEach((account)=> {
                         return DomainBank.findAll({
@@ -20,8 +21,6 @@ ControllerUpdateCanAmount.updatePromoAccountCan = function updatePromoAccountCan
                             account: account.account
                             }
                         }).then(values => {
-                            console.log("------");
-                            console.log(JSON.stringify(values));
                             var eth_amount = 0;
                             var btc_amount = 0;
                             if(values.length == 0){
@@ -43,7 +42,7 @@ ControllerUpdateCanAmount.updatePromoAccountCan = function updatePromoAccountCan
                                     break;
                                 }
                             });
-                            var data = JSON.parse(rf.readFileSync("subscriptionRatio.json","utf-8"));
+                            
                             var totalamount = eth_amount*data.eth + btc_amount*data.btc;
                             DomainAccount.update({
                                 canAmount:totalamount
