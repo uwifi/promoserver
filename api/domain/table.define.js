@@ -65,7 +65,11 @@ model.DomainAccount = sequelize.define("t_account", {
     receiveCanAddress:{
         type:Sequelize.STRING,
         field:'receive_can_address'
-    }
+    },
+    canAmount: {
+        type: Sequelize.BIGINT,
+        field: "can_amount"
+    },
 });
 model.DomainLibEth = sequelize.define("t_lib_eth", {
     status: {

@@ -107,7 +107,8 @@ ModelAccount.getAccountICOProcess = function getAccountICOProcess(authUser){
         }
         var icoBank = {
                 bankDate:values[0].map((ele)=>ele.toJSON()),
-                receiveCanAddress:values[1].receiveCanAddress
+                receiveCanAddress:values[1].receiveCanAddress,
+                canAmount:values[1].canAmount
             };
         return icoBank;
     });;

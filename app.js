@@ -7,6 +7,7 @@ const ControllerAccount = require("./api/controllers/account_controller");
 const ControllerFund = require("./api/controllers/fund_controller");
 const ControllerFundCjq = require("./api/controllers/fund_controller.cjq");
 const ControllerAccountCan = require("./api/controllers/canaddress_controller");
+const ControllerUpdateCanAmount = require("./api/controllers/account_update_canamount");
 
 var app = express();
 app.use(bodyParser.json());
@@ -36,6 +37,8 @@ app.post("/promo/authed/account/ico/canaddress", app.oauth.authenticate(), Contr
 app.post('/promo/public/account', ControllerAccount.createPromoAccount);
 app.post("/promo/ssl/public/fund/listen", ControllerFund.receiveListenerOfFund);
 app.post("/promo/ssl/public/fund/bitlisten", ControllerFundCjq.receiveListenerOfFund);
+
+app.get("/promo/ssl/public/fund/updatecanamount/:password", ControllerUpdateCanAmount.updatePromoAccountCan);
 
 
 //-- public end
