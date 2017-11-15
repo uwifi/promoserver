@@ -24,7 +24,7 @@ ControllerUpdateCanAmount.updatePromoAccountCan = function updatePromoAccountCan
                             var eth_amount = 0;
                             var btc_amount = 0;
                             if(values.length == 0){
-                                continue;
+                                return;
                             }
                             if(values.length != 2){
                                 throw {
